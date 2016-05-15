@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: ykousP1bFf+MVlI91onvPlb6ZQCMk6GXTlVZYjzy4IeLUk9KYWQCQ8zNElRrNeTE5owIukJo54neJNUC5PDZrc/9NSZXLA2lLnF//cJnbo3EPhThefu0xffNZ53sRx3f5MGD9bedD9V1swwtm4ZFlR9uKDnZ3l/Xd2gtkcc2GjDH5OCbHuLqNYe/69mWl281opd4A3pIrT+pV1MaZadD6Z9Q7O2HoSUdJLlMQqOi0dMZxNntnVvhzaLrWOb6/rZ12TVygX7M6GnND63PiReK8Az3HSQ6Ja7zC+JxjrQxy3picw7pFLDx+6+Ytmj3Jlojmi2jbs4JPK7+qV4JakYdmnbaM1QMTxACEklx4tOQ4Ex3N24YsaAvfI1MYEe7ONTV6BYyfG/UITqG0nZX9DskLLskQRvoAsv7EF1XH5PIBbABVchJurwuIWLyvFVxyUWn1qcB58im1uyXAQPIM82zo9GnunlH3UN/R4NXIwc7WXgLhGA3uqF+X8XERV460Jqufh/zQ1XdFhALF5IJYa1wuJfeyJotNGv5NF8trm09HFo6OGhWGZJdsRjmjjdo7RPdiePeCPV05es7CSdzaooacmeOIkI14PuLNk85fwCHloUAiN5RqIH0eqyXpk1iQD0ForQ5k5d1e/KUO3kya6DZxclFyykoNCZkVoPPd0ivpTY=
+  app: afternoon-escarpment-28050
+  on:
+    repo: rawreef/peepchat-ui
